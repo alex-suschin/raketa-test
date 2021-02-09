@@ -1,5 +1,7 @@
 window.onload = function() {
     document.body.classList.add('loaded');
+    document.getElementById('big-logo').classList.add("active")
+    document.getElementById('text-loader').classList.add("active")
 }
 
 
