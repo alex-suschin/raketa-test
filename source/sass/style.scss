@@ -233,7 +233,8 @@ main {
 
 .show {
     .header__logo,
-    .menu {
+    .menu,
+    #hamburger-icon {
         transform: translateY(0);
         -webkit-transform: translateY(0);
         -moz-transform: translateY(0);
@@ -251,11 +252,34 @@ main {
     }
 }
 
+.img-mobile {
+    display: none;
+}
+
+.bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
 #hamburger-icon {
     position: relative;
     display: none;
     width: 30px;
-    height: 18px
+    height: 18px;
+    transform: translateY(-200px);
+    -webkit-transform: translateY(-200px);
+    -moz-transform: translateY(-200px);
+    -ms-transform: translateY(-200px);
+    -o-transform: translateY(-200px);
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
 }
 
 #hamburger-icon .lineHamb {
@@ -332,6 +356,9 @@ main {
 }
 
 @media screen and (max-width: 992px) {
+    .bg-img {
+        display: none;
+    }
     #hamburger-icon {
         display: block;
     }
@@ -377,7 +404,9 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        z-index: 999;
         li {
+            margin-right: 0;
             margin-bottom: 30px;
         }
         li:last-child {
@@ -409,6 +438,88 @@ main {
 
 .ov-hidden {
     overflow: hidden!important;
+}
+
+@media screen and (max-width: 900px) {
+    .main-img {
+        position: fixed;
+        top: 74px;
+        left: 0;
+        width: 100vw;
+        margin: 0;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        -webkit-box-align: start;
+        align-items: start;
+        -webkit-box-pack: start;
+        justify-content: start;
+        height: calc(100vh - 74px);
+        z-index: 30;
+        overflow: auto;
+        background: #2C39F2;
+        padding: 15px 15px 85px;
+        box-sizing: border-box;
+        transform: translate(-100vw, 0);
+        -webkit-transform: translate(-100vw, 0);
+        -moz-transform: translate(-100vw, 0);
+        -ms-transform: translate(-100vw, 0);
+        -o-transform: translate(-100vw, 0);
+        transition: .3s ease-in-out;
+        -webkit-transition: .3s ease-in-out;
+        -moz-transition: .3s ease-in-out;
+        -ms-transition: all .3s ease-in-out;
+        -o-transition: .3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        img {
+            display: none;
+        }
+        .img-mobile {
+            display: block;
+        }
+        p {
+            max-width: 352px;
+            width: 100%;
+            margin: 0 auto;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 40px;
+            color: #FFFFFF;
+        }
+    }
+    .header {
+        margin-bottom: 0;
+    }
+    main {
+        padding-top: 246px;
+    }
+    main .title {
+        font-weight: normal;
+        font-size: 96px;
+        line-height: 96px;
+    }
+    .main-img.active {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    main .title {
+        font-size: 42px;
+        line-height: 42px;
+    }
+    .loader {
+        padding: 100px 15px;
+    }
 }
 
 // используйте это для отключения ховеров на тач устройствах
